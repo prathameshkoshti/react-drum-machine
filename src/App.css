@@ -1,33 +1,86 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: 'axr_outrunnerregular';
+    src: url('axroutrunner-webfont.woff2') format('woff2'),
+         url('axroutrunner-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+    font-family: 'streamsterregular';
+    src: url('streamster-webfont.woff2') format('woff2'),
+         url('streamster-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+	margin: 0;
+	height: 100vh;
+	background: #212121;
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+#drum-machine {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 400px;
+	transform: scale(1.3);
+}
+.pad-bank {
+	display: grid;
+	grid-template-columns: repeat(3, 100px);
+	grid-template-rows: repeat(3, 100px);
+	grid-gap: 10px;
+}
+.pad-bank > .drum-pad {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	border: 2px solid;
+	border-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%) 1;
+	font-weight: 600;
+	color: #fafafa;
+	transition: 0.2s ease-out;
 }
 
-.App-link {
-  color: #61dafb;
+.pad-bank > .drum-pad:hover {
+	background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+	transition: 0.2s ease-in;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pressed {
+	transform: translateY(2px);
+	background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+	transition: 0.2s ease-in;
+}
+
+#display {
+	font-family: 'axr_outrunnerregular';
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fafafa;
+	width: 600px;
+	height: auto;
+	font-size: 7em;
+	text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+	color: #FED128;
+	margin-bottom: 40px;
+	margin-top: -40px
 }
